@@ -7,7 +7,7 @@ const App = () => {
     let {plusOne, minusOne, plusOneHundred, minusOneHundred} = methods;
     let [state, dispatch] = useReducer(reducer, initialState);
     let InputRef = useRef(0);
-    let [MyInputValue, setInputValue] = useState(0);
+    let [MyInputValue, setInputValue] = useState('');
 
     return (
         <div className={'container d-flex dir-column align-center'}>
