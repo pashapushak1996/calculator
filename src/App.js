@@ -5,14 +5,14 @@ import './App.css';
 
 const App = () => {
     let {plusOne, minusOne, plusOneHundred, minusOneHundred} = methods;
-    let [state, dispatch] = useReducer(reducer, initialState);
+    let [state, dispatch] = useReducer(reducer, initialState,);
     let InputRef = useRef(0);
     let [MyInputValue, setInputValue] = useState('');
 
     return (
         <div className={'container d-flex dir-column align-center'}>
             <h1>Calculator</h1>
-            <h1 className={'counter-div '}>{state.counter}</h1>
+            <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : state.counter}</h1>
             <div>
                 <button className={'mx-10 btn'}
                         onClick={() => plusOne(dispatch)}>1
