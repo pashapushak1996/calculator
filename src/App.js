@@ -1,9 +1,10 @@
 import {useReducer, useRef, useState} from 'react';
 import {initialState, reducer} from "./reducers";
-import {plusOne, minusOne, plusOneHundred, minusOneHundred, reset, inputValue} from "./action-creators";
+import {reset, inputValue, methods} from "./action-creators";
 import './App.css';
 
 const App = () => {
+    let {plusOne, minusOne, plusOneHundred, minusOneHundred} = methods;
     let [state, dispatch] = useReducer(reducer, initialState);
     let InputRef = useRef(0);
     let [MyInputValue, setInputValue] = useState(0);
