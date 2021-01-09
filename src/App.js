@@ -28,7 +28,7 @@ const App = () => {
                        ref={InputRef}
                        onInput={event => setInputValue({MyInputValue: event.target.value})} value={MyInputValue.value}/>
                 <button className={'btn'} onClick={() => {
-                    InputRef.current.value < 0 ? console.log(`Error`) : inputValue(dispatch, +InputRef.current.value);
+                    InputRef.current.value < 0 ? console.error(`Error`) : inputValue(dispatch, +InputRef.current.value);
                 }}>Submit
                 </button>
             </div>
