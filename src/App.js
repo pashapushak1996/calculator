@@ -36,7 +36,7 @@ const App = () => {
                 <input className={'btn'}
                        type={'text'}
                        ref={InputRef}
-                       onInput={event => setInputValue({MyInputValue: +event.target.value})}
+                       onInput={event => setInputValue({MyInputValue: event.target.value})}
                        value={MyInputValue.value}/>
                 <button className={'btn'}
                         onClick={() => {
