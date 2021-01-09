@@ -10,12 +10,20 @@ export const reducer = (state, action) => {
             return {...state, counter: state.counter + 1}
         }
         case MINUS_ONE: {
+            const prevValue = state.counter;
+            if (prevValue < 0 || prevValue === 0) {
+                return state
+            }
             return {...state, counter: state.counter - 1}
         }
         case PLUS_ONE_HUNDRED: {
             return {...state, counter: state.counter + 100}
         }
         case MINUS_ONE_HUNDRED: {
+            const prevValue = state.counter;
+            if (prevValue < 0 || prevValue === 0) {
+                return state
+            }
             return {...state, counter: state.counter - 100}
         }
         case RESET : {
@@ -23,6 +31,9 @@ export const reducer = (state, action) => {
         }
         case INPUT_VALUE: {
             const prevValue = state.counter;
+            if (action.payload < 0 || action.payload === 0) {
+                return {counter: prevValue}
+            }
             return {...state, counter: action.payload + prevValue}
         }
         default: {
