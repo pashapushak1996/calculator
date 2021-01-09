@@ -8,7 +8,6 @@ export const minusOneHundred = (dispatch) => dispatch({type: MINUS_ONE_HUNDRED})
 
 
 export const reset = (dispatch) => dispatch({type: RESET});
-export const inputValue = (e,dispatch,payload) => {
-    e.preventDefault()
+export const inputValue = (dispatch,payload) => {
     dispatch({type:INPUT_VALUE,payload})
 };

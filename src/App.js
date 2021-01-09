@@ -1,10 +1,12 @@
-import {useReducer} from 'react';
+import {useReducer, useRef, useState} from 'react';
 import {initialState, reducer} from "./reducers";
 import {plusOne, minusOne, plusOneHundred, minusOneHundred, reset, inputValue} from "./action-creators";
 import './App.css';
 
 const App = () => {
     let [state, dispatch] = useReducer(reducer, initialState);
+    let InputRef = useRef(0);
+    let [MyInputValue, setInputValue] = useState(0);
 
     return (
         <div className={'container d-flex dir-column align-center'}>
@@ -19,12 +21,21 @@ const App = () => {
                 <button className={'mx-10 btn'} onClick={() => minusOneHundred(dispatch)}>-100</button>
             </div>
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>
-          {/*todo прибрати форму, зробити контролйований інпут*/}
-            <form className={'d-flex mx-10 align-center'} onSubmit={(e) => inputValue(e, dispatch, +e.target[0].value)}>
+            {/*todo прибрати форму, зробити контролйований інпут*/}
+            <div className={'d-flex mx-10 align-center'}>
                 <h3 className={'mx-10'}>Число:</h3>
-                <input className={'btn'} type={'text'}/>
-                <button className={'btn'}>Submit</button>
-            </form>
+                <input className={'btn'} type={'text'}
+                       ref={InputRef}
+                       onInput={event => setInputValue({MyInputValue: event.target.value})} value={MyInputValue.value}/>
+                <button className={'btn'} onClick={() => {
+                    if (InputRef.current.value < 0) {
+                        console.log(`Error`)
+                    } else
+                        inputValue(dispatch, +InputRef.current.value)
+                }}>Submit
+                </button>
+            </div>
+
         </div>
     );
 }
