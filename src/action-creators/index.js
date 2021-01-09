@@ -6,8 +6,7 @@ export const plusOneHundred = (dispatch) => dispatch({type: PLUS_ONE_HUNDRED});
 export const minusOneHundred = (dispatch) => dispatch({type: MINUS_ONE_HUNDRED});
 
 
-
 export const reset = (dispatch) => dispatch({type: RESET});
-export const inputValue = (dispatch,payload) => {
-    dispatch({type:INPUT_VALUE,payload})
+export const inputValue = (dispatch, payload) => {
+    dispatch({type: INPUT_VALUE, payload})
 };
