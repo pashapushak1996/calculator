@@ -40,6 +40,7 @@ const App = () => {
                        value={MyInputValue.value}/>
                 <button className={'btn'}
                         onClick={() => {
+                            // InputRef.current.value < 0 ? console.error(`Error`) :
                             inputValue(dispatch, +InputRef.current.value);
                         }}>Submit
                 </button>
