@@ -5,10 +5,8 @@ import './App.css';
 
 const App = () => {
     let {plusOne, minusOne, plusOneHundred, minusOneHundred} = methods;
-    let [state, dispatch] = useReducer(reducer, initialState,);
-    let InputRef = useRef(0);
-    let [MyInputValue, setInputValue] = useState('');
-
+    let [state, dispatch] = useReducer(reducer, initialState);
+    let [myInputValue, setInputValue] = useState('');
     return (
         <div className={'container d-flex dir-column align-center'}>
             <h1>Calculator</h1>
@@ -30,18 +28,15 @@ const App = () => {
                 </button>
             </div>
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>
-            {/*todo прибрати форму, зробити контролйований інпут*/}
             <div className={'d-flex mx-10 align-center'}>
                 <h3 className={'mx-10'}>Число:</h3>
                 <input className={'btn'}
                        type={'text'}
-                       ref={InputRef}
-                       onInput={event => setInputValue({MyInputValue: event.target.value})}
-                       value={MyInputValue.value}/>
+                       onInput={({target:{value}}) => setInputValue(value)}
+                       value={myInputValue}/>
                 <button className={'btn'}
                         onClick={() => {
-                            // InputRef.current.value < 0 ? console.error(`Error`) :
-                            inputValue(dispatch, +InputRef.current.value);
+                            inputValue(dispatch, +myInputValue);
                         }}>Submit
                 </button>
             </div>
