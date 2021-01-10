@@ -1,6 +1,6 @@
 import {useReducer, useState} from 'react';
 import {initialState, reducer} from "./reducers";
-import {inputValue,reset, handleCounter} from "./action-creators";
+import {inputValue, reset, handleCounter} from "./action-creators";
 import './App.css';
 
 const App = () => {
