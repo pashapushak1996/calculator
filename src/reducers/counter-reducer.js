@@ -7,10 +7,10 @@ export const initialState = {
 export const reducer = (state, action) => {
     switch (action.type) {
         case PLUS_ONE: {
-            return {...state, counter: state.counter + 1}
+            return {...state, counter: state.counter++ }
         }
         case MINUS_ONE: {
-            return {...state, counter: state.counter - 1}
+            return {...state, counter: state.counter-- }
         }
         case PLUS_ONE_HUNDRED: {
             return {...state, counter: state.counter + 100}
