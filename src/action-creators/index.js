@@ -1,5 +1,5 @@
 import {PLUS_ONE, MINUS_ONE, MINUS_ONE_HUNDRED, PLUS_ONE_HUNDRED, RESET, INPUT_VALUE} from "../action-types";
-// todo змінити ці 4 метода на один
+// todo змінити ці 4 метода на один дуже смішно але ніт невірно
 
 export const handleCounter = (value, dispatch) => {
     if (value === 1) dispatch({type: PLUS_ONE});
