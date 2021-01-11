@@ -12,26 +12,22 @@ const App = () => {
             <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : state.counter}</h1>
             <div>
                 <button className={'mx-10 btn'}
-                        value={1}
-                        onClick={({target: {value}}) =>
-                            handleCounter(+value, dispatch)}>1
+                        onClick={() =>
+                            handleCounter(1, dispatch)}>1
                 </button>
                 <button className={'mx-10 btn'}
-                        value={-1}
-                        onClick={({target: {value}}) =>
-                            handleCounter(+value, dispatch)}>-1
+                        onClick={() =>
+                            handleCounter(-1, dispatch)}>-1
                 </button>
             </div>
             <div className={'mx-10'}>
                 <button className={'mx-10 btn'}
-                        value={100}
-                        onClick={({target: {value}}) =>
-                            handleCounter(+value, dispatch)}>100
+                        onClick={() =>
+                            handleCounter(100, dispatch)}>100
                 </button>
                 <button className={'mx-10 btn'}
-                        value={-100}
-                        onClick={({target: {value}}) =>
-                            handleCounter(+value, dispatch)}>-100
+                        onClick={() =>
+                            handleCounter(-100, dispatch)}>-100
                 </button>
             </div>
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>
