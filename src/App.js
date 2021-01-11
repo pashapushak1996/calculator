@@ -13,21 +13,21 @@ const App = () => {
             <div>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(1, dispatch)}>1
+                            handleCounter(1, dispatch,1)}>1
                 </button>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(-1, dispatch)}>-1
+                            handleCounter(-1, dispatch,-1)}>-1
                 </button>
             </div>
             <div className={'mx-10'}>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(100, dispatch)}>100
+                            handleCounter(100, dispatch,100)}>100
                 </button>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(-100, dispatch)}>-100
+                            handleCounter(-100, dispatch,-100)}>-100
                 </button>
             </div>
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>

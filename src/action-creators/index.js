@@ -1,11 +1,11 @@
-import {PLUS_ONE, MINUS_ONE, MINUS_ONE_HUNDRED, PLUS_ONE_HUNDRED, RESET, INPUT_VALUE} from "../action-types";
+import {RESET, INPUT_VALUE, CHANGE_VALUE} from "../action-types";
 // todo змінити ці 4 метода на один дуже смішно але ніт невірно
 
-export const handleCounter = (value, dispatch) => {
-    if (value === 1) dispatch({type: PLUS_ONE});
-    if (value === -1) dispatch({type: MINUS_ONE});
-    if (value === 100) dispatch({type: PLUS_ONE_HUNDRED});
-    if (value === -100) dispatch({type: MINUS_ONE_HUNDRED});
+export const handleCounter = (value, dispatch, payload) => {
+    if (value === 1) dispatch({type: CHANGE_VALUE, payload});
+    if (value === -1) dispatch({type: CHANGE_VALUE, payload});
+    if (value === 100) dispatch({type: CHANGE_VALUE, payload});
+    if (value === -100) dispatch({type: CHANGE_VALUE, payload});
 }
 
 export const reset = (dispatch) => dispatch({type: RESET});
