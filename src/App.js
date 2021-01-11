@@ -4,12 +4,15 @@ import {inputValue, reset, handleCounter} from "./action-creators";
 import './App.css';
 
 const App = () => {
-    let [state, dispatch] = useReducer(reducer, initialState);
-    let [myInputValue, setMyInputValue] = useState('');
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const [myInputValue, setMyInputValue] = useState('');
+    console.log(state);
+
     return (
         <div className={'container d-flex dir-column align-center'}>
             <h1>Calculator</h1>
-            <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : state.counter}</h1>
+            <h1>{ isNaN(state.counter) ? state.counter : parseInt(state.counter)}</h1>
+            <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : +state.counter}</h1>
             <div>
                 <button className={'mx-10 btn'}
                         onClick={() =>
@@ -34,11 +37,14 @@ const App = () => {
             <div className={'d-flex mx-10 align-center'}>
                 <h3 className={'mx-10'}>Число:</h3>
                 <input type="text"
-                       onInput={({target: {value}}) => setMyInputValue(value)}
+                       onInput={({target: {value}}) =>
+                           setMyInputValue(value)
+                       }
                        value={myInputValue}/>
                 <button className={'btn'}
                         onClick={() => {
-                            inputValue(dispatch, +myInputValue);
+                          inputValue(dispatch, myInputValue);
+                          setMyInputValue('');
                         }}>Submit
                 </button>
             </div>

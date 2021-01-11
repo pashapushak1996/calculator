@@ -5,12 +5,13 @@ export const initialState = {
 }
 
 export const reducer = (state, action) => {
+    console.log(state);
     switch (action.type) {
         case PLUS_ONE: {
-            return {...state, counter: state.counter++ }
+            return {...state, counter: state.counter++}
         }
         case MINUS_ONE: {
-            return {...state, counter: state.counter-- }
+            return {...state, counter: state.counter--}
         }
         case PLUS_ONE_HUNDRED: {
             return {...state, counter: state.counter + 100}
@@ -23,10 +24,12 @@ export const reducer = (state, action) => {
         }
         case INPUT_VALUE: {
             const prevValue = state.counter;
-            if (action.payload < 0 || action.payload === 0) {
-                return {counter: prevValue}
+            if (isNaN(action.payload)) {
+                return {
+                    ...state, counter: prevValue
+                }
             }
-            return {...state, counter: action.payload + prevValue}
+            return {...state, counter: +action.payload + prevValue}
         }
         default: {
             return state;
