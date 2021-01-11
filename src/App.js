@@ -6,12 +6,9 @@ import './App.css';
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [myInputValue, setMyInputValue] = useState('');
-    console.log(state);
-
     return (
         <div className={'container d-flex dir-column align-center'}>
             <h1>Calculator</h1>
-            <h1>{ isNaN(state.counter) ? state.counter : parseInt(state.counter)}</h1>
             <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : +state.counter}</h1>
             <div>
                 <button className={'mx-10 btn'}
@@ -43,8 +40,8 @@ const App = () => {
                        value={myInputValue}/>
                 <button className={'btn'}
                         onClick={() => {
-                          inputValue(dispatch, myInputValue);
-                          setMyInputValue('');
+                            inputValue(dispatch, myInputValue);
+                            setMyInputValue('');
                         }}>Submit
                 </button>
             </div>
