@@ -3,6 +3,15 @@ import {initialState, reducer} from "./reducers";
 import {inputValue, reset, handleCounter} from "./action-creators";
 import './App.css';
 
+
+// dispatch(handleCounter(0)) // reset
+// dispatch(handleCounter(Number(inputVal))) // inpChange
+// dispatch(handleCounter(current + 1)) // inc
+// dispatch(handleCounter(current - 1)) // dec
+// dispatch(handleCounter(current + 100)) // inc
+// dispatch(handleCounter(current - 100)) // dec
+
+
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [myInputValue, setMyInputValue] = useState('');
@@ -12,22 +21,23 @@ const App = () => {
             <h1 className={'counter-div '}>{state.counter < 0 ? state.counter = 0 : +state.counter}</h1>
             <div>
                 <button className={'mx-10 btn'}
-                        onClick={() =>
-                            handleCounter(1, dispatch,1)}>1
+                        onClick={() => {
+                            dispatch(handleCounter(1))
+                        }}>1
                 </button>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(-1, dispatch,-1)}>-1
+                            dispatch(handleCounter(-1))}>-1
                 </button>
             </div>
             <div className={'mx-10'}>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(100, dispatch,100)}>100
+                            dispatch(handleCounter(100))}>100
                 </button>
                 <button className={'mx-10 btn'}
                         onClick={() =>
-                            handleCounter(-100, dispatch,-100)}>-100
+                            dispatch(handleCounter(-100))}>-100
                 </button>
             </div>
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>
@@ -40,7 +50,7 @@ const App = () => {
                        value={myInputValue}/>
                 <button className={'btn'}
                         onClick={() => {
-                            inputValue(dispatch, myInputValue);
+                            myInputValue > 0 ? inputValue(dispatch, myInputValue) : setMyInputValue('');
                             setMyInputValue('');
                         }}>Submit
                 </button>

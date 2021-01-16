@@ -29,6 +29,7 @@ export const reducer = (state, action) => {
             }
             return {...state}
         }
+
         case RESET: {
             return {...state, counter: state.counter = 0}
         }
