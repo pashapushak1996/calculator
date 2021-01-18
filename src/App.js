@@ -10,6 +10,7 @@ import './App.css';
 // dispatch(handleCounter(current - 1)) // dec
 // dispatch(handleCounter(current + 100)) // inc
 // dispatch(handleCounter(current - 100)) // dec
+//todo создать три компоненты кнопки, инпут, резалт соответственно перенести чать логики туда
 
 
 const App = () => {
