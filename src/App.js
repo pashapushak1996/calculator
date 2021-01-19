@@ -1,7 +1,7 @@
 import './App.css';
-import {Input} from "./components/input";
-import {Buttons} from "./components/buttons";
-import {Result} from "./components/result"
+import {Input} from "./components";
+import {Buttons} from "./components";
+import {Result} from "./components"
 //todo создать три компоненты кнопки, инпут, резалт соответственно перенести чать логики туда
 
 

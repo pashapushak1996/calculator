@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {inputValue} from "../../redux/action-creators";
+import {inputValue} from "../../redux/";
 import {useDispatch} from "react-redux";
 
 export const Input = () => {
