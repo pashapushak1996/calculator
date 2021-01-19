@@ -1,10 +1,10 @@
 import {INPUT_VALUE, RESET, CHANGE_VALUE} from "../action-types";
 
 export const initialState = {
-    counter: 0
+    counter: 0,
 }
 
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_VALUE: {
             if (action.payload === 1) {
