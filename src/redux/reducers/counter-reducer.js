@@ -1,7 +1,8 @@
 import {INPUT_VALUE, RESET, CHANGE_VALUE} from "../action-types";
-
+//todo в нас є масив кнопок він йде у компоненту батон і там відмальовує їх
 export const initialState = {
     counter: 0,
+    buttons: [1,-1,100,-100]
 }
 
 export const reducer = (state = initialState, action) => {
