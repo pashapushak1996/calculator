@@ -1,12 +1,22 @@
 import {INPUT_VALUE, RESET, CHANGE_VALUE} from "../action-types";
+import {Buttons} from "../../components";
+import {handleCounter} from "../action-creators";
 //todo в нас є масив кнопок він йде у компоненту батон і там відмальовує їх
 export const initialState = {
     counter: 0,
-    buttons: [1,-1,100,-100]
+    buttons: [1, -1, 100, -100],
+    divElement: []
 }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case "SET_BUTTONS": {
+            return {
+                ...state,
+                divElement: [state.buttons.map((el) => <button key={el}
+                                                               className={'mx-10 btn'}>{el}</button>)]
+            }
+        }
         case CHANGE_VALUE: {
             if (action.payload === 1) {
                 return {
@@ -18,7 +28,7 @@ export const reducer = (state = initialState, action) => {
                     ...state, counter: state.counter - 1
                 }
             }
-            if (action.payload === 100) {
+            if (action.payload === +100) {
                 return {
                     ...state, counter: state.counter + 100
                 }
@@ -30,7 +40,6 @@ export const reducer = (state = initialState, action) => {
             }
             return {...state}
         }
-
         case RESET: {
             return {...state, counter: state.counter = 0}
         }

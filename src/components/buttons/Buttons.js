@@ -1,33 +1,25 @@
-import React from 'react';
-import {handleCounter, reset} from "../../redux/action-creators";
-import {useDispatch} from "react-redux";
+import React, {useEffect} from 'react';
+import {handleCounter, reset} from "../../redux/";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export const Buttons = () => {
-    let dispatch = useDispatch();
+    let divElement = useSelector(({divElement}) => divElement);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({type: "SET_BUTTONS"})
+    }, []);
+
     return (
         <>
-            <div>
-                <button className={'mx-10 btn'}
-                        onClick={() => {
-                            dispatch(handleCounter(1))
-                        }}>1
-                </button>
-                <button className={'mx-10 btn'}
-                        onClick={() =>
-                            dispatch(handleCounter(-1))}>-1
-                </button>
-            </div>
-            <div className={'mx-10'}>
-                <button className={'mx-10 btn'}
-                        onClick={() =>
-                            dispatch(handleCounter(100))}>100
-                </button>
-                <button className={'mx-10 btn'}
-                        onClick={() =>
-                            dispatch(handleCounter(-100))}>-100
-                </button>
-            </div>
+            {
+                divElement && divElement.map(el => el.map(el => {
+                        const {key} = el;
+                        return <div onClick={() => dispatch(handleCounter(+key))}>{el}</div>
+                    }
+                ))
+            }
             <button className={'btn'} onClick={() => reset(dispatch)}>Reset</button>
         </>
     );
